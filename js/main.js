@@ -22,10 +22,10 @@ import { getData } from  "./components/TheDataMiner.js";
             panel.firstElementChild.dataset.key = person.id;    
 
             memberInfo[0].querySelector('img').src = `images/${person.biopic}`;
-            /* memberInfo[1].textContent = person.name;
+             memberInfo[1].textContent = person.name;
             memberInfo[2].textContent = person.role;
             memberInfo[3].textContent = person.nickname;
- */
+
             // put the virtual panel in the team section our HTML page
             theTeam.appendChild(panel);
         }) 
