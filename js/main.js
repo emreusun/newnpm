@@ -6,25 +6,23 @@ import { getData } from  "./components/TheDataMiner.js";
 
 (() => {
     const theTeam = document.querySelector("#team-members"),
-          theTemplate = document.querySelectorAll("#bio-template").content;
+          theTemplate = document.querySelector("#bio-template").content;
 
-
- 
+    
+    
     function buildTeam(info) {
-        
-        let team = Object.keys(info);
         
         info.forEach(person => { 
             
              let panel = theTemplate.cloneNode(true),
                 memberInfo = panel.firstElementChild.children;  
-                debugger;
+                
 
             memberInfo[0].querySelector('img').src = `images/${person.biopic}`;
-            memberInfo[1].textContent = person.name;
+            /* memberInfo[1].textContent = person.name;
             memberInfo[2].textContent = person.role;
             memberInfo[3].textContent = person.nickname;
-
+ */
             // put the virtual panel in the team section our HTML page
             theTeam.appendChild(panel);
         }) 
@@ -34,7 +32,7 @@ import { getData } from  "./components/TheDataMiner.js";
        
     }
 
-    // invoke the getData function
-    getData();
+    // pass the buildteam function to our data miner as a callback
+    getData(null, buildTeam);
 
 })()
