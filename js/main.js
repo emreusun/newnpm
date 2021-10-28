@@ -35,9 +35,25 @@ import { getData } from  "./components/TheDataMiner.js";
        
     }
     function getMoreData(event) {
+        if (event.target.closest("section").dataset.key) {
+           let key = event.target.closest("section").dataset.key; 
+           
+          /*  getData({id: key}, function(data) {
+               // execute this line as the callback in Dataminer
+           console.log(data); */ 
+        //})
+        getData({id: key}, showPortfolioData);
+        }
         debugger;
     }
-
+    function showPortfolioData(data) {
+        // show the portfolio piece somewhere in your UI
+        console.log(data);
+    }
+   
+    // when we click on a bio, we want to retrieve the custom data attribute that refers to the row of
+    // data that represents this person in the DB
+    theTeam.addEventListener("click", getMoreData);
     // pass the buildteam function to our data miner as a callback
     getData(null, buildTeam);
 
