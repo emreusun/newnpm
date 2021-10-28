@@ -18,6 +18,9 @@ import { getData } from  "./components/TheDataMiner.js";
                 memberInfo = panel.firstElementChild.children;  
                 
 
+            // add the custom data attribute value to the section tag inside the template
+            panel.firstElementChild.dataset.key = person.id;    
+
             memberInfo[0].querySelector('img').src = `images/${person.biopic}`;
             /* memberInfo[1].textContent = person.name;
             memberInfo[2].textContent = person.role;
@@ -30,6 +33,9 @@ import { getData } from  "./components/TheDataMiner.js";
         // first, clone the template because we can't use it directly
         
        
+    }
+    function getMoreData(event) {
+        debugger;
     }
 
     // pass the buildteam function to our data miner as a callback
